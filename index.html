@@ -6,51 +6,93 @@
   <title>Jan Stossier – Portfolio</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: "Inter", system-ui, sans-serif;
       background-color: #f9fafb;
       color: #111827;
       line-height: 1.6;
-      margin: 0;
     }
 
     header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 2rem 10%; background: white;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05); position: sticky; top: 0;
-      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      position: sticky; top: 0; z-index: 100;
     }
-    header h1 { font-size: 1.4rem; color: #111827; }
+
+    header h1 {
+      font-size: 1.4rem;
+      color: #111827;
+      font-weight: 700;
+    }
+
     nav a {
-      margin-left: 2rem; text-decoration: none; color: #10b981;
-      font-weight: 500; transition: .2s;
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #10b981;
+      font-weight: 500;
+      transition: .2s;
     }
+
     nav a:hover { color: #059669; }
 
+    /* INTRO */
     section.intro {
       display: flex; align-items: center; justify-content: space-between;
       padding: 5rem 10%; flex-wrap: wrap;
     }
+
     .intro-text { flex: 1 1 400px; margin-right: 3rem; }
     .intro-text h2 {
-      font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
     }
     .intro-text h2 span { color: #10b981; }
-    .intro-text p { font-size: 1.1rem; color: #374151; margin-bottom: 2rem; }
-    .buttons a {
-      display: inline-block; margin-right: 1rem; padding: 0.8rem 1.4rem;
-      border-radius: 9999px; font-weight: 500; text-decoration: none;
-      color: white; background-color: #10b981; transition: 0.2s;
-    }
-    .buttons a.secondary { background: #e5e7eb; color: #111827; }
-    .buttons a:hover { background-color: #059669; }
-    .profile-img { flex: 0 0 280px; text-align: center; }
-    .profile-img img {
-      width: 250px; height: 250px; object-fit: cover;
-      border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    .intro-text p {
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 2rem;
+      max-width: 600px;
     }
 
-    /* Profile Section */
+    .buttons a {
+      display: inline-block;
+      margin-right: 1rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .buttons a:first-child {
+      background-color: #10b981;
+      color: white;
+    }
+    .buttons a.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .buttons a:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .profile-img {
+      flex: 0 0 260px;
+      text-align: center;
+    }
+
+    .profile-img img {
+      width: 250px; height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    /* PROFILE SECTION */
     section.profile {
       padding: 4rem 10%;
       background-color: #f9fafb;
@@ -95,30 +137,60 @@
       line-height: 1.6;
     }
 
-    /* Skills Section */
-    section.skills { padding: 4rem 10%; background: white; }
-    .skills h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-    .skills-list {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 1.5rem;
+    /* SKILL TAGS SECTION */
+    section.skills-tags {
+      padding: 4rem 10%;
+      background-color: #ffffff;
     }
-    .skill {
-      background: #f3f4f6; padding: 1.5rem; border-radius: 1rem;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+
+    .skills-tags h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-    .skill h4 { color: #10b981; margin-bottom: 0.5rem; }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag-list span {
+      display: inline-block;
+      background-color: #f3f4f6;
+      color: #374151;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+      transition: 0.2s ease-in-out;
+    }
+
+    .tag-list span:hover {
+      background-color: #10b981;
+      color: white;
+      border-color: #10b981;
+      transform: scale(1.05);
+    }
 
     footer {
-      text-align: center; padding: 2rem; background: #f9fafb;
-      color: #6b7280; font-size: 0.9rem; border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 2rem;
+      background: #f9fafb;
+      color: #6b7280;
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
     }
 
     @media (max-width: 900px) {
       .profile-container { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
       section.intro { flex-direction: column; text-align: center; }
       .intro-text { margin-right: 0; }
+      .profile-img { margin-top: 2rem; }
     }
   </style>
 </head>
@@ -128,11 +200,12 @@
     <h1>Jan Stossier</h1>
     <nav>
       <a href="#profile">Profile</a>
-      <a href="#skills">Skills</a>
+      <a href="#skills-tags">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <!-- INTRO SECTION -->
   <section class="intro" id="intro">
     <div class="intro-text">
       <p>Let me introduce myself</p>
@@ -144,8 +217,6 @@
       <div class="buttons">
         <a href="mailto:janstossier8@gmail.com">Contact me</a>
         <a href="JanStossier_Lebenslauf.pdf" class="secondary" target="_blank">View CV (PDF)</a>
-
-
       </div>
     </div>
     <div class="profile-img">
@@ -153,7 +224,7 @@
     </div>
   </section>
 
-  <!-- NEW PROFILE SECTION -->
+  <!-- PROFILE SECTION -->
   <section class="profile" id="profile">
     <div class="profile-container">
       <div class="profile-left">
@@ -180,33 +251,56 @@
           <li>Data analysis & scripting (Python, Excel, HTML, CSS)</li>
           <li>Software: SAP, MS Office, KISIM</li>
           <li>Languages: English (B2), French (B2), Polish (native), Italian (basic)</li>
-          <li>Soft skills: communicative, structured, adaptable, team-oriented</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="skills" id="skills">
-    <h3>Key Skills</h3>
-    <div class="skills-list">
-      <div class="skill">
-        <h4>Engineering & Analytics</h4>
-        <p>Process design, optimization, and data-driven problem solving.</p>
-      </div>
-      <div class="skill">
-        <h4>Financial Knowledge</h4>
-        <p>Understanding of financial systems, digital banking, and emerging FinTech trends.</p>
-      </div>
-      <div class="skill">
-        <h4>Project Management</h4>
-        <p>Experience with agile and structured methods (Scrum / Waterfall).</p>
-      </div>
-      <div class="skill">
-        <h4>Programming & Tools</h4>
-        <p>Basic experience in Python, Excel automation and Power BI.</p>
-      </div>
-    </div>
-  </section>
+  <!-- SKILL TAGS SECTION -->
+  <section class="skills-tags" id="skills-tags">
+    <h3>Hard Skills</h3>
+    <div class="tag-list">
+      <span>Process Optimization</span>
+      <span>Business Process Design (BPMN 2.0)</span>
+      <span>Lean Management</span>
+      <span>Continuous Improvement (PDCA)</span>
+      <span>Project Management (Advanced Knowledge in Agile, Scrum, Waterfall)</span>
+      <span>Requirements Engineering</span>
+      <span>Data Analytics (Excel, Python)</span>
+      <span>Data Visualization (Python, Pycharm)</span>
+      <span>Financial Modelling</span>
+      <span>Budgeting & Forecasting (Controlling)</span>
+      <span>Business Analysis</span>
+      <span>ERP Systems (SAP, KISIM)</span>
+      <span>Digital Transformation</span>
+      <span>Process Automation (Power Automate)</span>
+      <span>Microsoft 365 (Advanced)</span>
+      <span>Python Basics (Data & Process Tasks)</span>
+      <span>HTML & CSS Basics</span>
+      <span>GitHub Basics</span>
+      
+  </div>
+
+  <h3>Soft Skills</h3>
+  <div class="tag-list">
+    <span>Analytical Thinking</span>
+    <span>Conceptual Thinking</span>
+    <span>Structured Work</span>
+    <span>Communication</span>
+    <span>Teamwork</span>
+    <span>Adaptability</span>
+    <span>Solution-Oriented</span>
+    <span>Proactive</span>
+    <span>Reliability</span>
+    <span>Organization</span>
+    <span>Multitasking</span>
+    <span>Fast Learner</span>
+    <span>Big-Picture Thinking</span>
+    <span>Self-Motivation</span>
+    <span>Stress Resilience</span>
+  </div>
+</section>
+
 
   <footer id="contact">
     <p>© 2025 Jan Stossier · Designed with 💡 and curiosity</p>

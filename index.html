@@ -13,10 +13,12 @@
       line-height: 1.6;
       margin: 0;
     }
+
     header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 2rem 10%; background: white;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05); position: sticky; top: 0;
+      z-index: 100;
     }
     header h1 { font-size: 1.4rem; color: #111827; }
     nav a {
@@ -47,6 +49,53 @@
       width: 250px; height: 250px; object-fit: cover;
       border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
+
+    /* Profile Section */
+    section.profile {
+      padding: 4rem 10%;
+      background-color: #f9fafb;
+    }
+
+    .profile-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .profile-left h3 {
+      font-size: 1.8rem;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    .profile-left p {
+      color: #374151;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-right {
+      background-color: #ffffff;
+      padding: 1.5rem 1.8rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .profile-right h4 {
+      color: #111827;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-right ul {
+      list-style-type: disc;
+      margin-left: 1.2rem;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    /* Skills Section */
     section.skills { padding: 4rem 10%; background: white; }
     .skills h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
     .skills-list {
@@ -58,9 +107,14 @@
       box-shadow: 0 1px 5px rgba(0,0,0,0.03);
     }
     .skill h4 { color: #10b981; margin-bottom: 0.5rem; }
+
     footer {
       text-align: center; padding: 2rem; background: #f9fafb;
       color: #6b7280; font-size: 0.9rem; border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 900px) {
+      .profile-container { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       section.intro { flex-direction: column; text-align: center; }
@@ -68,6 +122,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Jan Stossier</h1>
@@ -77,39 +132,8 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
-<section class="profile" id="profile">
-  <div class="profile-container">
-    <div class="profile-left">
-      <h3>Profile</h3>
-      <p>
-        I am a <strong>Business Engineering student</strong> at FHNW with a commercial background (EFZ) 
-        and several years of experience in the healthcare sector. 
-        I enjoy combining structured thinking, problem-solving, and people-oriented communication — 
-        skills I aim to bring into technology-driven business environments.
-      </p>
-      <p>
-        Currently, I’m expanding my <strong>technical and analytical skills</strong> through my studies, 
-        with growing interest in <strong>data-driven process optimization</strong> and 
-        <strong>financial technology (FinTech)</strong>.
-      </p>
-    </div>
 
-    <div class="profile-right">
-      <h4>Abstracts of skills</h4>
-      <ul>
-        <li>Process design & optimization (BPMN 2.0)</li>
-        <li>Project management & controlling (Waterfall, Agile/Scrum)</li>
-        <li>Business analysis, budgeting & reporting</li>
-        <li>Data analysis & scripting (Python, Excel, HTML, CSS)</li>
-        <li>Software: SAP, MS Office, KISIM</li>
-        <li>Languages: English (B2), French (B2), Polish (native), Italian (basic)</li>
-        <li>Soft skills: communicative, structured, adaptable, team-oriented</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-  <section class="intro" id="profile">
+  <section class="intro" id="intro">
     <div class="intro-text">
       <p>Let me introduce myself</p>
       <h2>Hi, I'm <span>Jan</span> — a Business Engineering Student passionate about <span>FinTech</span></h2>
@@ -118,12 +142,45 @@
         My goal is to combine analytical thinking with innovation to create impactful, data-driven financial solutions.
       </p>
       <div class="buttons">
-        <a href="#">Contact me</a>
+        <a href="mailto:janstossier8@gmail.com">Contact me</a>
         <a href="#" class="secondary">View CV (PDF)</a>
       </div>
     </div>
     <div class="profile-img">
       <img src="DrHeadshot_1761475414412.PNG" alt="Profile photo of Jan Stossier">
+    </div>
+  </section>
+
+  <!-- NEW PROFILE SECTION -->
+  <section class="profile" id="profile">
+    <div class="profile-container">
+      <div class="profile-left">
+        <h3>Profile</h3>
+        <p>
+          I am a <strong>Business Engineering student</strong> at FHNW with a commercial background (EFZ) 
+          and several years of experience in the healthcare sector. 
+          I enjoy combining structured thinking, problem-solving, and people-oriented communication — 
+          skills I aim to bring into technology-driven business environments.
+        </p>
+        <p>
+          Currently, I’m expanding my <strong>technical and analytical skills</strong> through my studies, 
+          with growing interest in <strong>data-driven process optimization</strong> and 
+          <strong>financial technology (FinTech)</strong>.
+        </p>
+      </div>
+
+      <div class="profile-right">
+        <h4>Abstracts of skills</h4>
+        <ul>
+          <li>Process design & optimization (BPMN 2.0)</li>
+          <li>Project management & controlling (Waterfall, Agile/Scrum)</li>
+          <li>Business analysis, budgeting & reporting</li>
+          <li>Data analysis & scripting (Python, Excel, HTML, CSS)</li>
+          <li>Software: SAP, MS Office, KISIM</li>
+          <li>Languages: English (B2), French (B2), Polish (native), Italian (basic)</li>
+          <li>Soft skills: communicative, structured, adaptable, team-oriented</li>
+        </ul>
+      </div>
     </div>
   </section>
 
